@@ -49,6 +49,7 @@ exports.createOne = Model =>
 
 exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
+    
     let query = Model.findById(req.params.id);
     if (popOptions) query = query.populate(popOptions);
     const doc = await query;
@@ -65,21 +66,76 @@ exports.getOne = (Model, popOptions) =>
     });
   });
 
-exports.getAll = Model =>
+// This Route return the only selected fields   
+
+exports.getAll = (Model,fieldsString) =>
+  catchAsync(async (req, res, next) => {
+
+    //console.log(Model);
+    let filter = {};
+    if (req.params.genre) filter = { genre: req.params.genre};
+
+    let selectFields ={};
+    selectFields = fieldsString;
+
+    const features = Model.find(filter).select(selectFields);
+    // const doc = await features.query.explain();
+    const doc = await features;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc
+      }
+    });
+  });
+
+  exports.showAll = Model =>
   catchAsync(async (req, res, next) => {
     // To allow for nested GET reviews on tour (hack)
     let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    if (req.params.genre) filter = { genre: req.params.genre};
 
-    const features = new APIFeatures(Model.find(filter), req.query)
-      .filter()
-      .sort()
-      .limitFields()
-      .paginate();
+    const features = Model.find(filter);
+
     // const doc = await features.query.explain();
-    const doc = await features.query;
+    const doc = await features;
 
     // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc
+      }
+    });
+  });  
+
+
+  exports.addNewData = (Model,fieldTobeUpdated) => catchAsync(async(req,res,next) =>{
+    let query ={};
+
+    switch(fieldTobeUpdated){
+      case 'books':
+        query = {books: req.body.books};
+        break;
+      case 'videos':
+        query = {videos: req.body.videos};
+        break;
+      case 'courses':
+        query = {courses: req.body.courses};
+        break;  
+      default:
+        console.log("Oops!")   
+
+    }
+
+    const doc = await Model.findByIdAndUpdate(req.params.id,{
+      $push:query
+    })
+
     res.status(200).json({
       status: 'success',
       results: doc.length,
