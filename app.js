@@ -8,15 +8,12 @@ const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
-const tourRouter = require('./routes/tourRoutes');
+
 const userRouter = require('./routes/userRoutes');
-const reviewRouter = require('./routes/reviewRoutes');
 const genreRouter = require('./routes/genreRoutes');
-const grandPhilosopherRouter = require('./routes/genre/grandPhilosopherRoutes');
-const fancyItemRouter = require('./routes/fancyItemRoutes'); 
+const fancyItemRouter = require('./routes/fancyItemRoutes');
 const quotesRouter = require('./routes/quotesRoutes');
 const genreFancyItemRouter = require('./routes/genreFancyItemRoutes');
-
 
 const app = express();
 
@@ -71,14 +68,12 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
-app.use('/api/v1/tours', tourRouter);
+
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/reviews', reviewRouter);
-app.use('/api/v1/genres',genreRouter);
-app.use('/api/v1/grandPhilosopher',grandPhilosopherRouter);
-app.use('/api/v1/fancyItem',fancyItemRouter);
-app.use('/api/v1/quotes',quotesRouter);
-app.use('/api/v1/genreFancyItem',genreFancyItemRouter);
+app.use('/api/v1/genres', genreRouter);
+app.use('/api/v1/fancyItem', fancyItemRouter);
+app.use('/api/v1/quotes', quotesRouter);
+app.use('/api/v1/genreFancyItem', genreFancyItemRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

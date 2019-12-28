@@ -1,12 +1,13 @@
 const express = require('express');
 const fancyItemController = require('../controllers/fancyItemController');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
 
 router
-    .route('/')
-    .post(fancyItemController.createFancyItem)
-    .get(fancyItemController.getAllFancyItems);
+  .route('/')
+  .post(fancyItemController.createFancyItem)
+  .get(fancyItemController.getAllFancyItems);
 
 router.route('/:genre').get(fancyItemController.getFancyItemByGenre);
 
