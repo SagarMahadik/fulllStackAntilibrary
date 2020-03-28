@@ -1,0 +1,19 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import GenreDetails from '../GenreDetails/GenreDetails';
+import FancyItem from '../FancyItem/FancyItem';
+import GenreFancyItem from '../GenreFancyItem/GenreFancyItem';
+
+export default function Routes() {
+  return (
+    <Switch>
+      <Route exact path="/genreDetails" component={GenreDetails} />
+      <Route
+        exact
+        path="/genreFancyitems/:genreName"
+        component={GenreFancyItem}
+      />
+      <Route exact path="/FancyItem/:id" component={FancyItem} />
+    </Switch>
+  );
+}
