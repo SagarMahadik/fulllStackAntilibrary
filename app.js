@@ -58,15 +58,6 @@ app.use(
   })
 );
 
-if (process.env.NODE_ENV === 'production') {
-  // Serving static files
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
-
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -81,6 +72,15 @@ app.use('/api/v1/genres', genreRouter);
 app.use('/api/v1/fancyItem', fancyItemRouter);
 app.use('/api/v1/quotes', quotesRouter);
 app.use('/api/v1/genreFancyItem', genreFancyItemRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  // Serving static files
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
