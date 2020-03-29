@@ -20,21 +20,17 @@ export const Genre = styled(Link)`
   color: whitesmoke;
   margin-top: 30px;
   border-radius: 7px;
-  width: 70%;
-  height: 100px;
+  width: 350px;
+  height: 200px;
   text-align: center;
   background-size: cover;
   background-position: top;
   text-decoration: none;
-  &:hover {
-    width: 90%;
-    height: 180px;
-  }
 `;
 
 export const GenreName = styled.h2`
   display: block;
-  margin-top: 30px;
+  margin-top: -100px;
   padding: 5px;
   font-size: 1rem;
   line-height: 1.7;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   GenreContainer,
   Genre,
   GenreName
 } from '../../styles/componentStyles/GenreDetails/genreCommonStyles';
+
+import { ThemeProvider } from 'styled-components';
 
 import {
   TheGrandPhilisophers,
@@ -13,30 +15,55 @@ import {
   Luminaries,
   MenOfLetters
 } from '../../styles/componentStyles/GenreDetails/genreDetails';
+
+import Book from '../Icons/Book';
 import FancyItem from '../FancyItem/FancyItem';
 import { BrowserRouter, Switch } from 'react-router-dom';
+import GenreGradient from './GenreGradient';
+import GenreFancyItemContext from '../../Context/genreFancyITem/GenreFancyItemContext';
 
 const GenreDetails = () => {
+  const genres = [
+    {
+      genreName: 'guidingLights',
+      genreGradientColor: '#f86600ce'
+    },
+    {
+      genreName: 'luminaries',
+      genreGradientColor: '#34e89ece'
+    },
+    {
+      genreName: 'architectsOfTheFuture',
+      genreGradientColor: '#1cb5e0ce'
+    },
+    {
+      genreName: 'theGrandPhilosophers',
+      genreGradientColor: '#a044ffce'
+    },
+    {
+      genreName: 'mavericScientists',
+      genreGradientColor: '3b4490ff'
+    },
+    {
+      genreName: 'menOfLetters',
+      genreGradientColor: '#dd1818ce'
+    }
+  ];
+
+  const genreFancyItemContext = useContext(GenreFancyItemContext);
+
+  const { getGenreName } = genreFancyItemContext;
+
   return (
     <GenreContainer>
-      <TheGrandPhilisophers to="/genreFancyitems/theGrandPhilosophers">
-        <GenreName>The Grand Philosophers</GenreName>
-      </TheGrandPhilisophers>
-      <GuidingLights to="/genreFancyitems/guidingLights">
-        <GenreName>Guiding Lights</GenreName>
-      </GuidingLights>
-      <ArchitectsOfFuture to="/genreFancyitems/architectsOfTheFuture">
-        <GenreName>Architects Of The Future</GenreName>
-      </ArchitectsOfFuture>
-      <MaverickScientists to="/genreFancyitems/mavericScientists">
-        <GenreName>Maveric Scientists</GenreName>
-      </MaverickScientists>
-      <MenOfLetters to="/genreFancyitems/menOfLetters">
-        <GenreName>Men Of Letters</GenreName>
-      </MenOfLetters>
-      <Luminaries to="/genreFancyitems/luminaries">
-        <GenreName>Luminaries</GenreName>
-      </Luminaries>
+      {genres.map(genre => (
+        <ThemeProvider theme={{ genre: `${genre.genreName}` }}>
+          <Genre to={`/genreFancyitems/${genre.genreName}`}>
+            <GenreGradient genreName={genre.genreName} />
+            <GenreName>{getGenreName(genre.genreName)}</GenreName>
+          </Genre>
+        </ThemeProvider>
+      ))}
     </GenreContainer>
   );
 };
