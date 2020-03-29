@@ -37,7 +37,7 @@ export default function FancyItemInterviews() {
   return (
     <ItemContainer>
       {interviews.map(interview => (
-        <ItemDetails href={'http://' + interview.interviewURL}>
+        <ItemDetails href={interview.interviewURL} target="_blank">
           <ItemIcon>
             <FaCouch size={24} />
           </ItemIcon>

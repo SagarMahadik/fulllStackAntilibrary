@@ -34,7 +34,7 @@ export default function FancyItemResearchPapers() {
     <React.Fragment>
       <ItemContainer>
         {researchPapers.map(researchPaper => (
-          <ItemDetails href={'http://' + researchPaper.researchPaperURL}>
+          <ItemDetails href={researchPaper.researchPaperURL} target="_blank">
             <ItemIcon>
               <FaArchive size={24} />
             </ItemIcon>

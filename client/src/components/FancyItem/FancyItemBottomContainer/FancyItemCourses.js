@@ -34,7 +34,7 @@ export default function FancyItemVideos() {
     <React.Fragment>
       <ItemContainer>
         {courses.map(course => (
-          <ItemDetails href={'http://' + course.courseURL}>
+          <ItemDetails href={course.courseURL} target="_blank">
             <ItemIcon>
               <FaVideo size={24} />
             </ItemIcon>

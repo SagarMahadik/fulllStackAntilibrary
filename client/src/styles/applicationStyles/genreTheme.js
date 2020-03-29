@@ -20,7 +20,7 @@ export const iconColor = theme('genre', {
 
 export const gradient = theme('genre', {
   theGrandPhilosophers:
-    '-webkit-linear-gradient( 210deg, rgba(0, 0, 0, 0) 0%, rgba(6, 160, 88, 0.301) 100% )',
+    '-webkit-linear-gradient( 210deg, rgba(0, 0, 0, 0) 0%, rgba(160, 68, 255, 0.301) 100% )',
   architectsOfTheFuture:
     '-webkit-linear-gradient( 210deg, rgba(0, 0, 0, 0) 0%, rgba(28, 181, 224, 0.301) 100% )',
   guidingLights:

@@ -19,7 +19,6 @@ export const ContentContainer = styled.div`
 
 export const GradientContainer = styled.div`
   height: 180px;
-  position: sticky;
   background-color: #333;
   top: 0px;
   z-index: 1;
