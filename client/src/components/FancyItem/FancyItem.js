@@ -21,6 +21,7 @@ export default function FancyItem({ match }) {
   useEffect(() => {
     console.log('I am in fancyITem');
     getFancyItemDetails(match.params.id);
+    window.scrollTo(0, 0);
   }, []);
   console.log(fancyItemDetails);
 

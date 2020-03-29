@@ -10,12 +10,14 @@
  */
 
 import React, { useEffect, useContext, useState } from 'react';
+
 import { ThemeProvider } from 'styled-components';
 
 import GenreFancyItemGradient from './GenreFancyItemGradient';
 
 import GenreFancyItemInformation from './GenreFancyItemInformation';
 import GenreFancyItemContext from '../../Context/genreFancyITem/GenreFancyItemContext';
+import Spinner from '../Layout/Spinner';
 
 import {
   GenreDetaills,
@@ -39,7 +41,12 @@ const GenreFancyItem = ({ match }) => {
     console.log(match.params);
     getGenreFancyItemDetails(match.params.genreName);
     setCurrentGenre(match.params.genreName);
+    window.scrollTo(0, 0);
   }, []);
+
+  if (loading || genreFancyItemDetails === undefined) {
+    return <Spinner />;
+  }
 
   return (
     <ThemeProvider theme={{ genre: currentGenre }}>
