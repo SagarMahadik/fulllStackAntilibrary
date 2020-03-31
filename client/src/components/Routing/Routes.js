@@ -1,3 +1,8 @@
+/**
+ * Routes.js
+ * Contains the react route in the application
+ * Future scope - TO create private routes to be used by authenticated users
+ */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import GenreDetails from '../GenreDetails/GenreDetails';

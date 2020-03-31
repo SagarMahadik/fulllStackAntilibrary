@@ -11,7 +11,7 @@ export const GenreContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  margin-top: 60px;
+  margin-top: 20px;
 `;
 
 export const Genre = styled(Link)`

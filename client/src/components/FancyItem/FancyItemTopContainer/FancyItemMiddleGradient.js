@@ -1,3 +1,7 @@
+/**
+ * FancyItemMiddleGradient.js
+ * Middle gradient on the fancyitem page
+ */
 import * as React from 'react';
 
 import { MiddleGradinetContainer } from '../../../styles/componentStyles/FancyItem/FancyItemTopContainer/fancyItemMiddleGradient';

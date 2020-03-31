@@ -1,3 +1,7 @@
+/**
+ * FancyItem.js
+ * This is index component holds the FancyItemTopContainer and FancyItemBottomContainer, Top container has higher z index
+ */
 import React, { useContext, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 

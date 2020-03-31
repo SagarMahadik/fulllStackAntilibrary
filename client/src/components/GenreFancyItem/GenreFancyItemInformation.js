@@ -1,8 +1,6 @@
 /**
  * File Name : GenreFancyItemInformation.js
  * Contains information about the "fancyItem" of the genre
- * Modifications required : API to be called on loading to get the details
- * Details required for the components: FancyItem Name, Notable work and image
  */
 import React from 'react';
 import {

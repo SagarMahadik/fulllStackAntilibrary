@@ -1,3 +1,8 @@
+/**
+ * TestSVG.js
+ * This component is to be used test the SVG component
+ */
+
 import * as React from 'react';
 
 function SvgComponent(props) {

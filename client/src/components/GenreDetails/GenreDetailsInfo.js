@@ -1,4 +1,9 @@
-const genres = [
+/**
+ * GenreDetailsInfo.js
+ * Array holds the genre variables to display the genre and stop color for gradient
+ */
+
+export const genres = [
   {
     genreName: 'guidingLights',
     genreGradientColor: '#f86600ce'

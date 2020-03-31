@@ -1,8 +1,6 @@
 /**
  * File Name : GenreFancyItemGradient.js
  * SVG gradient for the "GenreFancyItem" component
- * "ThemeProvider" from styled components to modify according to "Genre"
- * "Genre" value to be maintained in the state
  */
 
 import React from 'react';

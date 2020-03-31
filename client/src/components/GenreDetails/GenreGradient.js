@@ -1,3 +1,9 @@
+/**
+ * GenreGradient.js
+ * SVG elemet used for the genre
+ * Future scope - Image to be added at the bottom left hand side
+ */
+
 import * as React from 'react';
 import { SVGUniqueID } from 'react-svg-unique-id';
 

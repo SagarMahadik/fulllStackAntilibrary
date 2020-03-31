@@ -1,5 +1,10 @@
+/**
+ * Spinner.js
+ * Spinner svg component to be diplayed while loading
+ * Future scope: SVG book style loader with theme
+ */
+
 import React, { Fragment } from 'react';
-import spinner from './spinner.gif';
 import { LoaderContainer } from '../../styles/applicationStyles/appComponents';
 
 const Spinner = () => (

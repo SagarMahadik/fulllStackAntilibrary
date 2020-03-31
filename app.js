@@ -15,6 +15,7 @@ const genreRouter = require('./routes/genreRoutes');
 const fancyItemRouter = require('./routes/fancyItemRoutes');
 const quotesRouter = require('./routes/quotesRoutes');
 const genreFancyItemRouter = require('./routes/genreFancyItemRoutes');
+const searchRouter = require('./routes/searchRoutes');
 
 const app = express();
 
@@ -53,7 +54,8 @@ app.use(
       'ratingsAverage',
       'maxGroupSize',
       'difficulty',
-      'price'
+      'price',
+      'q'
     ]
   })
 );
@@ -72,6 +74,7 @@ app.use('/api/v1/genres', genreRouter);
 app.use('/api/v1/fancyItem', fancyItemRouter);
 app.use('/api/v1/quotes', quotesRouter);
 app.use('/api/v1/genreFancyItem', genreFancyItemRouter);
+app.use('/api/v1/search', searchRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Serving static files

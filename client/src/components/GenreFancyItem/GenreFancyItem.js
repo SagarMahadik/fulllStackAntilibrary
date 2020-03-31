@@ -1,9 +1,6 @@
 /**
  * File Name : GenreFancyItem.js
  * State value to be used to call the API and set Theme
- * API to be called to fetch the fancyitem for the genre
- * ThemeProvider to be used to customize according to genre
- * 1. Gradient stop color 2. overlay for fancyItem image
  * Developer Note:
  * Parallax effect to be added
  * Position sticky needs rework

@@ -1,3 +1,8 @@
+/**
+ * GenreFancyItemState.js
+ * This is naming blunder, to be renamed as antilibrary state.
+ * Holds the state which can be accessed by components which shares the context
+ */
 import React, { useReducer } from 'react';
 
 import axios from 'axios';
@@ -7,7 +12,8 @@ import {
   GET_GENREFANCYITEMS,
   SET_CURRENTGENRE,
   GET_FANCYITEMDETAILS,
-  SET_LOADING
+  SET_LOADING,
+  GET_SEARCHRESULTS
 } from '../types';
 
 const GenreFancyItemState = props => {
@@ -15,7 +21,8 @@ const GenreFancyItemState = props => {
     genreFancyItemDetails: [],
     fancyItemDetails: [],
     loading: false,
-    currentGenre: ''
+    currentGenre: '',
+    searchResults: []
   };
 
   const [state, dispatch] = useReducer(GenreFancyItemReducer, initialState);
@@ -27,6 +34,16 @@ const GenreFancyItemState = props => {
 
     dispatch({
       type: GET_GENREFANCYITEMS,
+      payload: res.data.data.data
+    });
+  };
+
+  const getSearchResults = async searchString => {
+    setLoading();
+    const res = await axios.get(`/api/v1/search?q=${searchString}`);
+
+    dispatch({
+      type: GET_SEARCHRESULTS,
       payload: res.data.data.data
     });
   };
@@ -79,9 +96,11 @@ const GenreFancyItemState = props => {
         fancyItemDetails: state.fancyItemDetails,
         currentGenre: state.currentGenre,
         loading: state.loading,
+        searchResults: state.searchResults,
         getGenreFancyItemDetails,
         getFancyItemDetails,
         setCurrentGenre,
+        getSearchResults,
         getGenreName
       }}
     >

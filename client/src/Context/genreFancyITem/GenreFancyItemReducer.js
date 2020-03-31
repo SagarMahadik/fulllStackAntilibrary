@@ -2,7 +2,8 @@ import {
   GET_GENREFANCYITEMS,
   GET_FANCYITEMDETAILS,
   SET_CURRENTGENRE,
-  SET_LOADING
+  SET_LOADING,
+  GET_SEARCHRESULTS
 } from '../types';
 
 export default (state, action) => {
@@ -23,6 +24,12 @@ export default (state, action) => {
         ...state,
         fancyItemDetails: action.payload,
         loading: false
+      };
+    case GET_SEARCHRESULTS:
+      return {
+        ...state,
+        searchResults: action.payload,
+        laoding: false
       };
     case SET_LOADING:
       return {
