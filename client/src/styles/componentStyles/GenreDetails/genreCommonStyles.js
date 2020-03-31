@@ -10,17 +10,16 @@ export const GenreContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
   margin-top: 20px;
+  margin-right: 30px;
 `;
 
 export const Genre = styled(Link)`
   display: block;
   margin: auto;
   color: whitesmoke;
-  margin-top: 30px;
   border-radius: 7px;
-  width: 350px;
+  width: 200px;
   height: 200px;
   text-align: center;
   background-size: cover;
@@ -30,7 +29,8 @@ export const Genre = styled(Link)`
 
 export const GenreName = styled.h2`
   display: block;
-  margin-top: -100px;
+  margin-top: -125px;
+  margin-left: 30px;
   padding: 5px;
   font-size: 1rem;
   line-height: 1.7;

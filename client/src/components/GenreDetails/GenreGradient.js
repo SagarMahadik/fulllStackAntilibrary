@@ -15,12 +15,7 @@ import {
 function SvgComponent(props) {
   return (
     <SVGUniqueID>
-      <svg
-        width={350.378}
-        height={200.378}
-        viewBox="0 0 92.704 53.017"
-        {...props}
-      >
+      <svg width={250} height={200.378} viewBox="0 0 92.704 53.017" {...props}>
         <defs>
           <radialGradient
             xlinkHref={`#${props.genreName}__a`}
