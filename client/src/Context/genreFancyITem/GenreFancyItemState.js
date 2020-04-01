@@ -13,7 +13,10 @@ import {
   SET_CURRENTGENRE,
   GET_FANCYITEMDETAILS,
   SET_LOADING,
-  GET_SEARCHRESULTS
+  GET_SEARCHRESULTS,
+  SET_TABLET,
+  SET_MOBILE,
+  SET_DESKTOP
 } from '../types';
 
 const GenreFancyItemState = props => {
@@ -22,7 +25,10 @@ const GenreFancyItemState = props => {
     fancyItemDetails: [],
     loading: false,
     currentGenre: '',
-    searchResults: []
+    searchResults: [],
+    isDesktop: false,
+    isMobile: false,
+    isTablet: false
   };
 
   const [state, dispatch] = useReducer(GenreFancyItemReducer, initialState);
@@ -89,6 +95,33 @@ const GenreFancyItemState = props => {
     }
   };
 
+  const setDesktop = () => {
+    dispatch({
+      type: SET_DESKTOP
+    });
+  };
+
+  const setMobile = () => {
+    dispatch({
+      type: SET_MOBILE
+    });
+  };
+
+  const setTABLET = () => {
+    dispatch({
+      type: SET_TABLET
+    });
+  };
+
+  const setDevice = width => {
+    if (width < 767) {
+      return setMobile();
+    } else if (width > 767 && width < 1280) {
+      return setTABLET();
+    }
+    return setDesktop();
+  };
+
   return (
     <GenreFancyItemContext.Provider
       value={{
@@ -97,11 +130,15 @@ const GenreFancyItemState = props => {
         currentGenre: state.currentGenre,
         loading: state.loading,
         searchResults: state.searchResults,
+        isDesktop: state.isDesktop,
+        isMobile: state.isMobile,
+        isTablet: state.isTablet,
         getGenreFancyItemDetails,
         getFancyItemDetails,
         setCurrentGenre,
         getSearchResults,
-        getGenreName
+        getGenreName,
+        setDevice
       }}
     >
       {props.children}

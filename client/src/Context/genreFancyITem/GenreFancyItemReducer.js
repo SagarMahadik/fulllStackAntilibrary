@@ -3,7 +3,10 @@ import {
   GET_FANCYITEMDETAILS,
   SET_CURRENTGENRE,
   SET_LOADING,
-  GET_SEARCHRESULTS
+  GET_SEARCHRESULTS,
+  SET_DESKTOP,
+  SET_MOBILE,
+  SET_TABLET
 } from '../types';
 
 export default (state, action) => {
@@ -35,6 +38,27 @@ export default (state, action) => {
       return {
         ...state,
         loading: true
+      };
+    case SET_DESKTOP:
+      return {
+        ...state,
+        isDesktop: true,
+        isTablet: false,
+        isMobile: false
+      };
+    case SET_MOBILE:
+      return {
+        ...state,
+        isDesktop: false,
+        isTablet: false,
+        isMobile: true
+      };
+    case SET_TABLET:
+      return {
+        ...state,
+        isDesktop: false,
+        isTablet: true,
+        isMobile: false
       };
 
     default:

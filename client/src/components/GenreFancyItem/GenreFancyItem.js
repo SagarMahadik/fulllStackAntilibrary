@@ -11,7 +11,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GenreFancyItemGradient from './GenreFancyItemGradient';
-
+import TabletGenreFancyItemGradient from './TabletGenreFancyItemGradient';
 import GenreFancyItemInformation from './GenreFancyItemInformation';
 import GenreFancyItemContext from '../../Context/genreFancyITem/GenreFancyItemContext';
 import Spinner from '../Layout/Spinner';
@@ -32,7 +32,9 @@ const GenreFancyItem = ({ match }) => {
     setCurrentGenre,
     currentGenre,
     getGenreName,
-    getScreenWidth
+    setDevice,
+    isTablet,
+    isMobile
   } = genreFancyItemContext;
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const GenreFancyItem = ({ match }) => {
     getGenreFancyItemDetails(match.params.genreName);
     setCurrentGenre(match.params.genreName);
     window.scrollTo(0, 0);
-    getScreenWidth();
+    setDevice(window.innerWidth);
   }, []);
 
   if (loading || genreFancyItemDetails === undefined) {
@@ -50,7 +52,8 @@ const GenreFancyItem = ({ match }) => {
   return (
     <ThemeProvider theme={{ genre: currentGenre }}>
       <GradientContainer>
-        <GenreFancyItemGradient />
+        {isTablet && <TabletGenreFancyItemGradient />}
+        {isMobile && <GenreFancyItemGradient />}
         <GenreDetaills>{getGenreName(currentGenre)}</GenreDetaills>
       </GradientContainer>
       <ContentContainer>
