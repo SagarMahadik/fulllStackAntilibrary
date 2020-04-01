@@ -6,6 +6,7 @@ import landingBackground from '../../../img/landing.jpg';
  * These are styles used for the Antilibrary landing page
  * Tasks pending : Background image is to be randomized
  * Possible implications on other components: Colors chosen for the components might require change
+ * Added media queries to make design responsive
  */
 
 export const Background = styled.div`
@@ -44,6 +45,12 @@ export const LoginForm = styled.div`
   background: rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border-radius: 10px;
+  @media (min-width: 765px) {
+    width: 70%;
+  }
+  @media (min-width: 1200px) {
+    width: 50%;
+  }
 `;
 
 export const TextField = styled.input`

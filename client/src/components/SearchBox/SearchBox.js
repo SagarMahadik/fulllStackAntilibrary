@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
 import {
   SearchBar,
-  IconContainer
+  IconContainer,
+  SearchBarContainer
 } from '../../styles/componentStyles/SearchBox/SearchBox';
 import SearchIcon from './SearchIcon';
 import SearchResult from './SearchResult';
@@ -31,13 +32,16 @@ const SearchBox = ({ setDisplayGenreContainer }) => {
 
   return (
     <Fragment>
-      <SearchBar
-        type="text"
-        name="searchSting"
-        placeholder="  Search Fancyitem..."
-        onChange={onChange}
-        value={searchText}
-      />
+      <SearchBarContainer>
+        <SearchBar
+          type="text"
+          name="searchSting"
+          placeholder="  Search Fancyitem..."
+          onChange={onChange}
+          value={searchText}
+        />
+      </SearchBarContainer>
+
       <SearchResult searchText={searchText} />
     </Fragment>
   );

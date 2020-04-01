@@ -31,7 +31,8 @@ const GenreFancyItem = ({ match }) => {
     loading,
     setCurrentGenre,
     currentGenre,
-    getGenreName
+    getGenreName,
+    getScreenWidth
   } = genreFancyItemContext;
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const GenreFancyItem = ({ match }) => {
     getGenreFancyItemDetails(match.params.genreName);
     setCurrentGenre(match.params.genreName);
     window.scrollTo(0, 0);
+    getScreenWidth();
   }, []);
 
   if (loading || genreFancyItemDetails === undefined) {

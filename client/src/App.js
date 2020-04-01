@@ -15,7 +15,7 @@ function App() {
     <GenreFancyItemState>
       <Router>
         <Switch>
-          <Route exact path="/" component={GenreDetails} />
+          <Route exact path="/" component={GenreFancyItem} />
           <Route component={Routes} />
         </Switch>
       </Router>

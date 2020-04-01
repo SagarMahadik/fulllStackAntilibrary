@@ -9,9 +9,16 @@ import { textColor, gradient } from '../../applicationStyles/genreTheme';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+export const GenreFancyItemsContainer = styled.div`
+  display: block;
+  margin: auto;
+`;
+
 export const GenreFancyItemContainer = styled.div`
   text-decoration: none;
   color: white;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FancyItemBox = styled(Link)`
@@ -23,7 +30,21 @@ export const FancyItemBox = styled(Link)`
   margin-bottom: 5px;
   margin-left: 10px;
   padding: 15px;
+  text-align: center;
   text-decoration: none;
+  @media (min-width: 765px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex: 4;
+    margin: 20px;
+  }
+  @media (min-width: 1280px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex: 5;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -42,6 +63,9 @@ export const Image = styled.img`
   position: relative;
   display: block;
   z-index: -1;
+  @media (min-width: 765px) {
+    margin: auto;
+  }
 `;
 
 export const FancyItemContent = styled.div`
@@ -49,6 +73,9 @@ export const FancyItemContent = styled.div`
   margin-left: 1.8em;
   text-decoration: none;
   color: white;
+  @media (min-width: 765px) {
+    margin-left: 0px;
+  }
 `;
 
 export const NotableWork = styled.p`
@@ -57,11 +84,17 @@ export const NotableWork = styled.p`
   ${FancyItemContent}:hover & {
     color: white;
   }
+  @media (min-width: 765px) {
+    text-align: center;
+  }
 `;
 
 export const FancyItemName = styled.h4`
   margin-top: 10px;
   ${FancyItemContent}:hover & {
     color: ${textColor};
+  }
+  @media (min-width: 765px) {
+    text-align: center;
   }
 `;

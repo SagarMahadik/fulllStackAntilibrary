@@ -15,6 +15,8 @@ export const Quote = styled.div`
   width: auto;
   height: auto;
   padding: 5px;
+  position: relative;
+  top: 60%;
 `;
 
 export const Button = styled(Link)`

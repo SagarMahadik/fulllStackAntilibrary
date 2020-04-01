@@ -19,7 +19,7 @@ export const Genre = styled(Link)`
   margin: auto;
   color: whitesmoke;
   border-radius: 7px;
-  width: 200px;
+  width: 220px;
   height: 200px;
   text-align: center;
   background-size: cover;
