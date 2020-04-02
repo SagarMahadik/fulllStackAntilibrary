@@ -44,21 +44,24 @@ export default (state, action) => {
         ...state,
         isDesktop: true,
         isTablet: false,
-        isMobile: false
+        isMobile: false,
+        device: action.payload
       };
     case SET_MOBILE:
       return {
         ...state,
         isDesktop: false,
         isTablet: false,
-        isMobile: true
+        isMobile: true,
+        device: action.payload
       };
     case SET_TABLET:
       return {
         ...state,
         isDesktop: false,
         isTablet: true,
-        isMobile: false
+        isMobile: false,
+        device: action.payload
       };
 
     default:

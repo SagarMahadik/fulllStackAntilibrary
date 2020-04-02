@@ -8,7 +8,7 @@ import FancyItem from './components/FancyItem/FancyItem';
 import Routes from './components/Routing/Routes';
 import GlobalStyle from '../src/styles/applicationStyles/globalStyles';
 import GenreFancyItemState from './Context/genreFancyITem/GenreFancyItemState';
-
+import GenreFancyItemGradient from './components/GenreFancyItem/GenreFancyItemGradient';
 import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {

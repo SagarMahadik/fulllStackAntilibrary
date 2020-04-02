@@ -19,15 +19,13 @@ export default function FancyItem({ match }) {
     currentGenre,
     getFancyItemDetails,
     loading,
-    setCurrentGenre,
-    getScreenWidth
+    setCurrentGenre
   } = genreFancyItemContext;
 
   useEffect(() => {
     console.log('I am in fancyITem');
     getFancyItemDetails(match.params.id);
     window.scrollTo(0, 0);
-    getScreenWidth();
   }, []);
   console.log(fancyItemDetails);
 

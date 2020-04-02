@@ -28,7 +28,8 @@ const GenreFancyItemState = props => {
     searchResults: [],
     isDesktop: false,
     isMobile: false,
-    isTablet: false
+    isTablet: false,
+    device: ''
   };
 
   const [state, dispatch] = useReducer(GenreFancyItemReducer, initialState);
@@ -95,21 +96,24 @@ const GenreFancyItemState = props => {
     }
   };
 
-  const setDesktop = () => {
+  const setDesktop = async => {
     dispatch({
-      type: SET_DESKTOP
+      type: SET_DESKTOP,
+      payload: 'desktop'
     });
   };
 
-  const setMobile = () => {
+  const setMobile = async => {
     dispatch({
-      type: SET_MOBILE
+      type: SET_MOBILE,
+      payload: 'mobile'
     });
   };
 
-  const setTABLET = () => {
+  const setTABLET = async => {
     dispatch({
-      type: SET_TABLET
+      type: SET_TABLET,
+      payload: 'tablet'
     });
   };
 
@@ -133,6 +137,7 @@ const GenreFancyItemState = props => {
         isDesktop: state.isDesktop,
         isMobile: state.isMobile,
         isTablet: state.isTablet,
+        device: state.device,
         getGenreFancyItemDetails,
         getFancyItemDetails,
         setCurrentGenre,

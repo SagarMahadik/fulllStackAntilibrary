@@ -21,6 +21,7 @@ import {
   ContentContainer,
   GradientContainer
 } from '../../styles/componentStyles/GenreFancyItem/genreFancyItem';
+import { viewbox } from '../../styles/applicationStyles/deviceTheme';
 
 const GenreFancyItem = ({ match }) => {
   const genreFancyItemContext = useContext(GenreFancyItemContext);
@@ -34,7 +35,8 @@ const GenreFancyItem = ({ match }) => {
     getGenreName,
     setDevice,
     isTablet,
-    isMobile
+    isMobile,
+    device
   } = genreFancyItemContext;
 
   useEffect(() => {
@@ -49,11 +51,17 @@ const GenreFancyItem = ({ match }) => {
     return <Spinner />;
   }
 
+  let viewBox = '';
+  if (device === 'tablet') {
+    viewBox = '0 0 206.375 52.917';
+  } else if (device === 'mobile') {
+    viewBox = '0 0 99.219 52.917';
+  }
+
   return (
-    <ThemeProvider theme={{ genre: currentGenre }}>
+    <ThemeProvider theme={{ genre: currentGenre, layout: device }}>
       <GradientContainer>
-        {isTablet && <TabletGenreFancyItemGradient />}
-        {isMobile && <GenreFancyItemGradient />}
+        <TabletGenreFancyItemGradient viewBox={viewBox} />
         <GenreDetaills>{getGenreName(currentGenre)}</GenreDetaills>
       </GradientContainer>
       <ContentContainer>
